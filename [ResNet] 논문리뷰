@@ -2,6 +2,13 @@
 VGGNet을 통해 딥러닝의 모델에서 레이어가 깊어질수록 더 좋은 성능을 기대할 수 있다고 생각된다.
 따라서 ResNet에서 더 많은 레이어에서 정확도를 얻을 수 있음을 실험하였으나 더 높은 에러율이 나타났다.
 이는 gradient vanishing/exploding 때문이다. 즉, 단순히 레이어의 수만 늘리는 것은 학습에 어려움을 야기할 수 있다.
+
+ResNet에서는 이러한 문제를 해결하기 위하여 위와 같은 residual learning framework를 제안했다.
+기존의 VGG NET의 tranditional한 모델에서는 하나의 레이어의 출력만이 다음 레이어의 입력이 되었다면  F(x) + x 와 같이 컨볼루션 레이어의 output에 기존의 입력 x를 더해 기울기 손실,폭발 문제를 해결하고자 했다. 
+(이는 추가 매개변수나 계산 복잡성을 추가하지 않는다.)
+이와 같이 하나의 레이어 또는 두개이상의 레이어를 건너 뛰어 다음의 input값에 output값을 더해주는 과정을 'Shortcut connections' 또는 'skip connections'라고 부른다. 
+이는 추가적인 파라미터를 필요로하지 않고, 복잡도도 증가하지않는다. 또한 구현이 간단하다는것이 장점이다. (학습 난이도가 쉽다)
+
 >> gradient vanishing/exploding이란? = 기울기 문제
 Gradient vanishing과 exploding은 딥러닝 모델에서 학습 과정에서 발생할 수 있는 문제 중 하나입니다. 이 문제는 Backpropagation 알고리즘에서 역전파되는 그래디언트(Gradient)가 특정 레이어를 지나면서 지수적으로 감소하거나 증가함에 따라 발생합니다.
  Gradient vanishing은 그래디언트가 역전파되면서 점차 작아지다가 사라져서 더 이상 학습이 되지 않게 되는 문제입니다. 이 문제는 보통 Deep Neural Network에서 발생하는데, 네트워크가 깊어질수록 그래디언트가 계속 작아져서 사라져서 발생합니다. 
@@ -20,3 +27,4 @@ CNN의 가장 큰 특징은 Convolutional Layer를 통해 입력 이미지의 �
 VGGNet의 특징은 Convolutional Layer와 Pooling Layer의 구성이 단순하고 깊어져서, 입력 이미지의 크기와 복잡도에 상관없이 일관된 결과를 얻을 수 있다는 것입니다.
  VGGNet은 총 16개의 Layer로 이루어져 있으며, Convolutional Layer는 모두 3x3 크기의 필터를 사용하고, Pooling Layer는 모두 2x2 크기의 필터를 사용합니다. 
 또한, VGGNet은 Rectified Linear Unit(ReLU) 활성화 함수를 사용하고, Dropout 정규화 기법을 적용하여 과적합을 방지합니다.
+
