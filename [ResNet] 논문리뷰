@@ -1,0 +1,22 @@
+[Abstract-논문의 연구 방향]
+VGGNet을 통해 딥러닝의 모델에서 레이어가 깊어질수록 더 좋은 성능을 기대할 수 있다고 생각된다.
+따라서 ResNet에서 더 많은 레이어에서 정확도를 얻을 수 있음을 실험하였으나 더 높은 에러율이 나타났다.
+이는 gradient vanishing/exploding 때문이다. 즉, 단순히 레이어의 수만 늘리는 것은 학습에 어려움을 야기할 수 있다.
+>> gradient vanishing/exploding이란? = 기울기 문제
+Gradient vanishing과 exploding은 딥러닝 모델에서 학습 과정에서 발생할 수 있는 문제 중 하나입니다. 이 문제는 Backpropagation 알고리즘에서 역전파되는 그래디언트(Gradient)가 특정 레이어를 지나면서 지수적으로 감소하거나 증가함에 따라 발생합니다.
+ Gradient vanishing은 그래디언트가 역전파되면서 점차 작아지다가 사라져서 더 이상 학습이 되지 않게 되는 문제입니다. 이 문제는 보통 Deep Neural Network에서 발생하는데, 네트워크가 깊어질수록 그래디언트가 계속 작아져서 사라져서 발생합니다. 
+이러한 문제는 특히 활성화 함수로 sigmoid나 tanh 함수를 사용할 때 많이 발생합니다.
+ Gradient exploding은 그래디언트가 역전파되면서 지수적으로 커져서 더 이상 수렴하지 않는 문제입니다. 이 문제는 보통 RNN(Recurrent Neural Network)에서 발생하는데, 시간에 따라서 그래디언트가 계속 커져서 발생합니다. 
+이러한 문제는 보통 그래디언트 클리핑(Gradient Clipping) 기법으로 해결할 수 있습니다.
+
+>> CNN이란?
+CNN(Convolutional Neural Network)은 딥러닝 모델 중 하나로, 이미지, 동영상, 음성 등과 같은 다차원 데이터를 처리하는 데 특화된 신경망 구조이며 Convolutional Layer, Pooling Layer, Fully Connected Layer 등으로 구성되어 있습니다. 
+Convolutional Layer는 입력 이미지와 필터(커널)를 합성곱하여 특징 맵(Feature Map)을 생성합니다. Pooling Layer는 특징 맵을 다운샘플링하여 특징을 강조하고, 계산량을 줄입니다. Fully Connected Layer는 Flatten된 특징 맵을 입력으로 받아 분류를 수행합니다.
+CNN의 가장 큰 특징은 Convolutional Layer를 통해 입력 이미지의 공간 정보를 보존하면서 특징 추출을 수행한다는 것입니다. 이를 통해 CNN은 입력 이미지의 지역적 특징을 인식하여 전체 이미지의 특징을 학습할 수 있습니다. 
+또한, CNN은 필터의 크기와 개수, 레이어의 개수 등 다양한 하이퍼파라미터를 조절하여 모델의 성능을 조정할 수 있습니다.
+>> VGGNet이란? 
+ 2014년 ILSVRC(ImageNet Large Scale Visual Recognition Competition)에서 우승한 딥러닝 모델 중 하나로써 Convolutional Neural Network (CNN)을 기반으로 하며,
+입력 이미지를 여러 개의 Convolutional Layer와 Pooling Layer를 통해 feature map으로 변환한 후, Fully Connected Layer로 분류하는 과정을 거칩니다.
+VGGNet의 특징은 Convolutional Layer와 Pooling Layer의 구성이 단순하고 깊어져서, 입력 이미지의 크기와 복잡도에 상관없이 일관된 결과를 얻을 수 있다는 것입니다.
+ VGGNet은 총 16개의 Layer로 이루어져 있으며, Convolutional Layer는 모두 3x3 크기의 필터를 사용하고, Pooling Layer는 모두 2x2 크기의 필터를 사용합니다. 
+또한, VGGNet은 Rectified Linear Unit(ReLU) 활성화 함수를 사용하고, Dropout 정규화 기법을 적용하여 과적합을 방지합니다.
