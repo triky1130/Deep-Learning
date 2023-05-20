@@ -1,0 +1,18 @@
+<Classification>
+-'분류', 이미지 자체에 이름을 정하는 것.
+ex) 사진 속의 'cat', 'duck'
+
+<Localization>
+-이미지에서 object가 어디에 있는지 검출하는 과정.
+-일반적으로 bounding box를 이용하여 검출한다.
+
+<Object detection>
+-Classification은 이미지를 특정 이름으로 분류하는 것
+-Object detection은 이미지에 검출되는 여러 객체들을 Localization 하는 것
+
+<Segmentation>
+-Localization을 진행하는 bounding box에서 object를 정확하게 pixel 단위로 구분하는 작업을 말한다.
+-Segmentation은 sementic segmentation과 instance segmentation 두 개로 나뉜다.
+sementic segmentation: 여러 개의 자동차가 검출되어도 하나의 클래스로 인식하여 같은 색으로 표현
+instance segmentation: 같은 클래스에서도 여러가지로 구분하는 것
+
